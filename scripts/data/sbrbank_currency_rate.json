@@ -1,0 +1,17 @@
+[
+  {
+    "name": "CNY,1¥",
+    "current_rate": "10,9709 ₽",
+    "previous_rate": "10,9306 ₽"
+  },
+  {
+    "name": "USD,1$",
+    "current_rate": "74,6209 ₽",
+    "previous_rate": "74,2963 ₽"
+  },
+  {
+    "name": "EUR,1€",
+    "current_rate": "87,8897 ₽",
+    "previous_rate": "88,5490 ₽"
+  }
+]

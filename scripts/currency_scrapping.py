@@ -2,7 +2,14 @@ import requests
 from bs4 import BeautifulSoup
 import time
 import json
+from pathlib import Path
 
+# ============ Создаём путь к папке "data" внутри текущего проекта ==================
+data_dir = Path(__file__).parent / "data"
+data_dir.mkdir(exist_ok=True)  # Создаём папку, если нет
+output_json = data_dir / 'sbrbank_currency_rate.json'
+
+# =============== Подключаемся к "https://www.cbr.ru/" ====================
 url = "https://www.cbr.ru/"
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
@@ -53,10 +60,9 @@ for currency in currencies:
         print(f'- Был вчера: {current_rate}')
         print(f'- Текущий курс: {previous_rate}')
         time.sleep(1) # обход блокировок
-    
-filename = 'sbrbank_currency_rate.json'
 
-with open(filename, 'w', encoding='utf-8') as f:
+with open(output_json, 'w', encoding='utf-8') as f:
   json.dump(report, f, ensure_ascii=False, indent=2)
+  print(f'Сохранено в: {output_json}')
 
-print(f'Данные сохранены в файл: {filename}')
+print(f'Данные сохранены в файл: {output_json}')
