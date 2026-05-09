@@ -1,0 +1,15 @@
+# Основные зависимости для парсера курсов ЦБ РФ
+# Установка: pip install requests beautifulsoup4 lxml
+
+# HTTP-запросы к сайтам
+requests==2.31.0
+
+# Парсинг HTML (BeautifulSoup + быстрый парсер)
+beautifulsoup4==4.12.2
+lxml==4.9.3
+
+import requests
+from bs4 import BeautifulSoup
+import time
+import json
+from pathlib import Path
