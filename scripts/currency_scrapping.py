@@ -14,7 +14,8 @@ currencies = soup.find_all('div', class_='main-indicator_rate')
 
 # Ищем блок
 for currency in currencies:
-  class_name = currency.find('div', class_='_yuan')
+  cur_class_list = ['col-md-2', 'col-xs-9']
+  class_name = currency.find('div', class_=cur_class_list)
 
   # Если нашли — вытаскиваем данные
   if class_name:
