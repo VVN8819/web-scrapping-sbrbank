@@ -1,9 +1,15 @@
 import requests
 from bs4 import BeautifulSoup
+import time
 
 url = "https://www.cbr.ru/"
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+}
 response = requests.get(url)
 print(f'Статус-код: {response.status_code}')
+
+time.sleep(1)
 
 # Добавим парсер из текста страницы
 soup = BeautifulSoup(response.text, 'lxml')
@@ -32,4 +38,5 @@ for currency in currencies:
     print(f'\nВалюта: {currency_name}')
     print(f'- Был вчера: {current_rate}')
     print(f'- Текущий курс: {previous_rate}')
-
+    time.sleep(1)
+    
